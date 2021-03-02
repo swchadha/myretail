@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: postgres
+    password: abc@123
+app:
+  redskyurl: http://redsky.target.com/v2/pdp/tcin/
+  redskyparams: excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics
+  priceApiUrl: https://price. myRetail.com/product/
+  priceApiUrlSuffix: /price

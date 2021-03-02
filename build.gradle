@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		postgresqlVersion = '42.2.19'
+		hikariCPVersion = '3.4.1'
+		lombokVersion = "4.1.6"
+	}
+
+	dependencies {
+		classpath "io.freefair.gradle:lombok-plugin:${lombokVersion}"
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "io.freefair.lombok" version "4.1.6"
+}
+
+group = 'com.target'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile "org.springframework.boot:spring-boot-starter-web"
+	compile "org.springframework.boot:spring-boot-starter-data-jpa"
+	compile "org.springframework.boot:spring-boot-starter-data-rest"
+	compile "org.springframework.boot:spring-boot-starter-jdbc"
+
+	//Database Dependencies
+	compile "org.postgresql:postgresql:${postgresqlVersion}"
+	compile "com.zaxxer:HikariCP:${hikariCPVersion}"
+
+	testCompile "org.springframework.boot:spring-boot-starter-test"
+	//testCompile "org.springframework.security:spring-security-test"
+	testCompile "junit:junit"
+}
+
+test {
+	useJUnitPlatform()
+}
